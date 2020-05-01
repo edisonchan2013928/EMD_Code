@@ -1,0 +1,129 @@
+g++ -c emd.cpp -w -o emd.o
+g++ -c init.cpp -w -o init.o
+g++ -c exact_emd.cpp -w -o exact_emd.o
+g++ -c LB_Proj.cpp -w -o LB_Proj.o
+g++ -c LB_IM.cpp -w -o LB_IM.o
+g++ -c LB_dimRed.cpp -w -o LB_dimRed.o
+g++ -c UB_H.cpp -w -o UB_H.o
+g++ -c UB_G.cpp -w -o UB_G.o
+g++ -c math_operation.cpp -w -o math_operation.o
+g++ -c Sinkhorn.cpp -w -o Sinkhorn.o
+g++ -c emd_approx.cpp -w -o emd_approx.o
+
+g++ main.cpp -O3 -w -o main emd.o init.o exact_emd.o LB_Proj.o LB_IM.o LB_dimRed.o UB_H.o UB_G.o math_operation.o Sinkhorn.o emd_approx.o
+
+#./main
+
+#my_emd.dim = atoi(argv[1]);
+#my_emd.method = atoi(argv[2]);
+#char*dataFileName = argv[3];
+#char*groundFileName = argv[4];
+#char*pairFileName = argv[5];
+#char*resultFileName = argv[6];
+
+#if (my_emd.method == 3)
+#	my_emd.dim_Red = atoi(argv[7]);
+#if (my_emd.method == 4)
+#	my_emd.hilbert_FileName = argv[7];
+#if (my_emd.method == 6)
+#	my_emd.abs_epsilon = atof(argv[7]);
+
+#Exact
+#UW_RGB
+./main 64 0 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M0.txt
+
+#VOC_RGB
+./main 64 0 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M0.txt
+
+#COR_RGB
+./main 64 0 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M0.txt
+
+#CAL_RGB
+./main 64 0 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M0.txt
+
+#UW_Lab
+./main 256 0 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M0.txt
+
+#VOC_Lab
+./main 256 0 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M0.txt
+
+#COR_Lab
+./main 256 0 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M0.txt
+
+#CAL_Lab
+./main 256 0 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M0.txt
+
+#Method=6
+#UW_RGB
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E5.txt 5
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E10.txt 10
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E15.txt 15
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E20.txt 20
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E25.txt 25
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E30.txt 30
+./main 64 6 ../../Image_Dataset/UW_DB_64RGB_FV/UW_DB_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_RGB_M6_E35.txt 35
+
+#VOC_RGB
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E5.txt 5
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E10.txt 10
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E15.txt 15
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E20.txt 20
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E25.txt 25
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E30.txt 30
+./main 64 6 ../../Image_Dataset/VOC_64RGB_FV/VOC_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_RGB_M6_E35.txt 35
+
+#COR_RGB
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E5.txt 5
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E10.txt 10
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E15.txt 15
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E20.txt 20
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E25.txt 25
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E30.txt 30
+./main 64 6 ../../Image_Dataset/COREL_64RGB_FV/COREL_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_RGB_M6_E35.txt 35
+
+#CAL_RGB
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E5.txt 5
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E10.txt 10
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E15.txt 15
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E20.txt 20
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E25.txt 25
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E30.txt 30
+./main 64 6 ../../Image_Dataset/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt ../../Image_Dataset/ground_vector_64RGB.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_RGB_M6_E35.txt 35
+
+#UW_Lab
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E1_25.txt 1.25
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E2_5.txt 2.5
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E3_75.txt 3.75
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E5.txt 5
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E6_25.txt 6.25
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E7_5.txt 7.5
+./main 256 6 ../../Image_Dataset/UW_DB_256Lab_FV/UW_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/UW_1000Pairs.txt ./Result/UW_Lab_M6_E8_75.txt 8.75
+
+#VOC_Lab
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E1_25.txt 1.25
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E2_5.txt 2.5
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E3_75.txt 3.75
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E5.txt 5
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E6_25.txt 6.25
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E7_5.txt 7.5
+./main 256 6 ../../Image_Dataset/VOC_256Lab_FV/VOC_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/VOC_1000Pairs.txt ./Result/VOC_Lab_M6_E8_75.txt 8.75
+
+#COR_Lab
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E1_25.txt 1.25
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E2_5.txt 2.5
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E3_75.txt 3.75
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E5.txt 5
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E6_25.txt 6.2
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E7_5.txt 7.5
+./main 256 6 ../../Image_Dataset/COREL_256Lab_FV/COREL_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/COREL_1000Pairs.txt ./Result/COREL_Lab_M6_E8_75.txt 8.75
+
+#CAL_Lab
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E1_25.txt 1.25
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E2_5.txt 2.5
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E3_75.txt 3.75
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E5.txt 5
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E6_25.txt 6.25
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E7_5.txt 7.5
+./main 256 6 ../../Image_Dataset/256_ObjectCategories_256Lab_FV/256_ObjectCategories_Lab_FVMatrix.txt ../../Image_Dataset/ground_vector_Lab.txt ../../Image_Dataset/Pair_File/256_OC_1000Pairs.txt ./Result/256_OC_Lab_M6_E8_75.txt 8.75
+
+exit

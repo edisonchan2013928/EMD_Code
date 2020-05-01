@@ -1,0 +1,36 @@
+#include "emd_approx.h"
+
+int main(int argc,char**argv)
+{
+	emd_struct my_emd;
+
+	my_emd.dim = atoi(argv[1]);
+	my_emd.method = atoi(argv[2]);
+	char*dataFileName = argv[3];
+	char*groundFileName = argv[4];
+	char*pairFileName = argv[5];
+	char*resultFileName = argv[6];
+	
+	if (my_emd.method == 3)
+		my_emd.dim_Red = atoi(argv[7]);
+	if (my_emd.method == 4)
+		my_emd.hilbert_FileName = argv[7];
+
+	//debug
+	/*my_emd.dim = 64;
+	my_emd.method = 6;
+	char*dataFileName=(char*)"./Datasets/256_ObjectCategories_64RGB_FV/256_ObjectCategories_64RGB_FVMatrix.txt";
+	char*groundFileName = (char*)"./Datasets/ground_vector_64RGB.txt";
+	char*pairFileName = (char*)"./Datasets/Pair_File/256_OC_1000Pairs.txt";
+	char*resultFileName = (char*)"./Results/256_OC_M6.txt";
+
+	if (my_emd.method == 3)
+		my_emd.dim_Red = 32;
+	if (my_emd.method == 4)
+		my_emd.hilbert_FileName = (char*)"";
+	if (my_emd.method == 6)
+		my_emd.abs_epsilon = 0.5;*/
+	
+	//loadData(dataFileName, pairFileName, true, my_emd);
+	run_emd_approx(dataFileName, pairFileName, groundFileName, resultFileName, my_emd);
+}
